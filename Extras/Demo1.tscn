@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://bc07jsdy7klh1"]
+
+[ext_resource type="Script" uid="uid://cvuyw5n28w7xp" path="res://addons/Extras/ExtrasDemo1.gd" id="1_4fbcy"]
+[ext_resource type="Script" uid="uid://c2esw6ln4m1pa" path="res://addons/Extras/InputKeyEditor.gd" id="1_41fcw"]
+[ext_resource type="Script" uid="uid://dy7f8di7r8hr3" path="res://addons/Extras/ButtonChangeScene.gd" id="3_kx4yn"]
+[ext_resource type="Script" uid="uid://csfhfeel0gwav" path="res://addons/Extras/CheckButtonAutoSaver.gd" id="4_a7fg8"]
+[ext_resource type="Script" uid="uid://bri5e8cs36k1q" path="res://addons/Extras/QuitGame.gd" id="4_hu7qp"]
+[ext_resource type="Script" uid="uid://d00bnkqwklrdq" path="res://addons/Extras/HSliderAutoSaver.gd" id="5_kx4yn"]
+[ext_resource type="Script" uid="uid://db8ofwcyjciqg" path="res://addons/Extras/CheckBoxAutoSaver.gd" id="7_4uawa"]
+[ext_resource type="Script" uid="uid://dmeex1yimbkqe" path="res://addons/Extras/VSliderAutoSave.gd" id="8_ult5d"]
+[ext_resource type="Script" uid="uid://cm7u4psug6pgo" path="res://addons/Extras/NodeSaveLoadData.gd" id="9_sswf5"]
+[ext_resource type="Script" uid="uid://bn8s1i1cmimdj" path="res://addons/Extras/TextEditAutoSaver.gd" id="10_4j3b3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4j3b3"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+
+[sub_resource type="GDScript" id="GDScript_kijed"]
+resource_name = "icon"
+script/source = "extends Sprite2D
+
+func _process(delta: float) -> void:
+	position.y+=Input.get_axis(\"ui_up\",\"ui_down\")
+"
+
+[sub_resource type="GDScript" id="GDScript_4j3b3"]
+script/source = "extends Button
+@onready var text_edit_auto_saver: TextEditAutoSaver = $\"../TextEditAutoSaver\"
+
+func _ready() -> void:
+	pressed.connect(on_pressed)
+
+func on_pressed():
+	var result = EF.Execute_String(text_edit_auto_saver.text)
+	text_edit_auto_saver.text+= \"\\n\\nAns: \"+str(result)
+"
+
+[node name="Node" type="Node" unique_id=22685071]
+script = ExtResource("1_4fbcy")
+
+[node name="InputActionKeyEditor" type="Button" parent="." unique_id=1005711024]
+offset_left = 384.0
+offset_top = 192.0
+offset_right = 632.0
+offset_bottom = 224.0
+text = "ui_up : Up"
+script = ExtResource("1_41fcw")
+input_action = "ui_up"
+key_name = "Up"
+metadata/_custom_type_script = "uid://c2esw6ln4m1pa"
+
+[node name="InputActionKeyEditor2" type="Button" parent="." unique_id=1578496241]
+offset_left = 384.0
+offset_top = 232.0
+offset_right = 632.0
+offset_bottom = 264.0
+text = "ui_down : Down"
+script = ExtResource("1_41fcw")
+input_action = "ui_down"
+key_name = "Down"
+metadata/_custom_type_script = "uid://c2esw6ln4m1pa"
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1672805425]
+position = Vector2(192, 320)
+texture = SubResource("CompressedTexture2D_4j3b3")
+script = SubResource("GDScript_kijed")
+
+[node name="ChangeScene" type="Button" parent="." unique_id=1029793865]
+offset_left = 384.0
+offset_top = 64.0
+offset_right = 512.0
+offset_bottom = 112.0
+text = "level 1"
+script = ExtResource("3_kx4yn")
+scene_path = "res://addons/Extras/Demo1.tscn"
+metadata/_custom_type_script = "uid://dy7f8di7r8hr3"
+
+[node name="ChangeScene2" type="Button" parent="." unique_id=516012984]
+offset_left = 528.0
+offset_top = 64.0
+offset_right = 656.0
+offset_bottom = 112.0
+text = "level 2"
+script = ExtResource("3_kx4yn")
+scene_path = "res://addons/Extras/Demo2.tscn"
+metadata/_custom_type_script = "uid://dy7f8di7r8hr3"
+
+[node name="ChangeScene3" type="Button" parent="." unique_id=24319572]
+offset_left = 384.0
+offset_top = 128.0
+offset_right = 512.0
+offset_bottom = 176.0
+text = "false level"
+script = ExtResource("3_kx4yn")
+scene_path = "res://addons/Extras/Demo3.tscn"
+metadata/_custom_type_script = "uid://dy7f8di7r8hr3"
+
+[node name="Label" type="Label" parent="." unique_id=819683727]
+offset_left = 384.0
+offset_top = 264.0
+offset_right = 632.0
+offset_bottom = 306.0
+focus_mode = 2
+theme_override_constants/line_spacing = -6
+theme_override_font_sizes/font_size = 13
+text = "^
+press button & press any keyboard key to change & save input action key"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="CheckButtonAutoSaver" type="CheckButton" parent="." unique_id=1642863787]
+offset_left = 384.0
+offset_top = 344.0
+offset_right = 616.0
+offset_bottom = 376.0
+text = "CheckButton AutoSaver"
+script = ExtResource("4_a7fg8")
+metadata/_custom_type_script = "uid://csfhfeel0gwav"
+
+[node name="QuitGame" type="Button" parent="." unique_id=2145352428]
+offset_left = 528.0
+offset_top = 128.0
+offset_right = 656.0
+offset_bottom = 176.0
+text = "QUIT GAME"
+script = ExtResource("4_hu7qp")
+metadata/_custom_type_script = "uid://bri5e8cs36k1q"
+
+[node name="HSliderAutoSaver" type="HSlider" parent="." unique_id=1185974125]
+offset_left = 384.0
+offset_top = 320.0
+offset_right = 632.0
+offset_bottom = 344.0
+script = ExtResource("5_kx4yn")
+metadata/_custom_type_script = "uid://d00bnkqwklrdq"
+
+[node name="CheckBoxAutoSaver" type="CheckBox" parent="." unique_id=1008015197]
+offset_left = 384.0
+offset_top = 376.0
+offset_right = 608.0
+offset_bottom = 408.0
+text = "CheckBox AutoSaver"
+alignment = 2
+script = ExtResource("7_4uawa")
+metadata/_custom_type_script = "uid://db8ofwcyjciqg"
+
+[node name="VSliderAutoSaver" type="VSlider" parent="." unique_id=541302705]
+offset_left = 640.0
+offset_top = 192.0
+offset_right = 664.0
+offset_bottom = 384.0
+script = ExtResource("8_ult5d")
+metadata/_custom_type_script = "uid://dmeex1yimbkqe"
+
+[node name="NodeSaveLoadData" type="Node" parent="." unique_id=1748739474]
+script = ExtResource("9_sswf5")
+metadata/_custom_type_script = "uid://cm7u4psug6pgo"
+
+[node name="TextEditAutoSaver" type="TextEdit" parent="." unique_id=1049538551]
+offset_left = 704.0
+offset_top = 64.0
+offset_right = 960.0
+offset_bottom = 344.0
+text = "1+2"
+script = ExtResource("10_4j3b3")
+metadata/_custom_type_script = "uid://bn8s1i1cmimdj"
+
+[node name="Button" type="Button" parent="." unique_id=2104792565]
+offset_left = 704.0
+offset_top = 352.0
+offset_right = 896.0
+offset_bottom = 384.0
+text = "^ Execute Text/Code"
+script = SubResource("GDScript_4j3b3")
