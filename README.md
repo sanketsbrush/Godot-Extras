@@ -1,4 +1,4 @@
-**Extras**  
+<img width="16" height="16" alt="btn" src="https://github.com/user-attachments/assets/49f2cef6-b6d6-43cc-a58e-d4f138dae4c8" />**Extras**  
 
 This Godot addon provides extra custom nodes that autosave data when changes occur and autoload saved data when game starts.  
 
@@ -16,7 +16,4 @@ Note down the path somewhere.
 Currently these nodes are available:  
 <img width="207" height="317" alt="extras" src="https://github.com/user-attachments/assets/effb3fe9-a2e6-4d41-921e-dc7f3459f716" />  
 Most of these nodes are self explanatory by their names.  
-Except NodeSaveLoadData.  
-It is just simple extension of Node.  
-It have 4 variables , and only one purpose , that is to save & load data  
-<img width="346" height="140" alt="extras node " src="https://github.com/user-attachments/assets/7e11cfbc-01c0-42bb-94d4-ed837e2fc221" />
+But if you are sitll confised about some node watch this video below 👇
