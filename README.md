@@ -16,4 +16,5 @@ Note down the path somewhere.
 Currently these nodes are available:  
 <img width="207" height="317" alt="extras" src="https://github.com/user-attachments/assets/effb3fe9-a2e6-4d41-921e-dc7f3459f716" />  
 Most of these nodes are self explanatory by their names.  
-But if you are sitll confised about some node watch this video below 👇
+But if you are sitll confised about some node watch this video below 👇  
+https://youtu.be/8wPGSoeHp2w?si=2Y4HlG-egOCL8ik8
