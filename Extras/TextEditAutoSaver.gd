@@ -26,7 +26,7 @@ func on_mouse_exited():
 
 func _input(event: InputEvent) -> void:if has_focus():
 	if Input.is_action_just_pressed("ui_text_completion_replace"):
-			text=str(EF.Execute_String(text))
+			text+="\nAnswer :- "+str(EF.Execute_String(text))
 			S()
 
 func S():
