@@ -1,0 +1,384 @@
+[gd_scene format=3 uid="uid://dnp0noijcdmd8"]
+
+[ext_resource type="Shader" uid="uid://uxbtlnysyc8o" path="res://addons/Extras/Demo UI/HDRI.gdshader" id="3_21rt5"]
+[ext_resource type="Script" uid="uid://c6ol50adku73a" path="res://addons/Extras/Demo UI/sun flare shader.gd" id="3_m168c"]
+[ext_resource type="Script" uid="uid://c708xnt655ctx" path="res://addons/Extras/Demo UI/sun shader.gd" id="4_efd4f"]
+
+[sub_resource type="GDScript" id="GDScript_dehen"]
+resource_name = "rotate"
+script/source = "#@tool
+extends Node3D
+
+#@onready var cam: Camera3D = $Node3D/Camera3D
+@onready var rot: Node3D = $Node3D
+
+var time:=0.0
+
+
+
+func _process(delta: float) -> void:
+	time+=delta
+	#cam.position.y=sin(time)*2
+	#cam.look_at(global_position,Vector3.UP)
+	rot.rotation_degrees.x=sin(time)*18
+	rotate_y(delta*0.5)
+	
+"
+
+[sub_resource type="Gradient" id="Gradient_mb13y"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.22700296)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sk1ne"]
+noise_type = 2
+frequency = 0.0255
+fractal_type = 0
+cellular_jitter = 0.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hmo8y"]
+noise = SubResource("FastNoiseLite_sk1ne")
+color_ramp = SubResource("Gradient_mb13y")
+
+[sub_resource type="Gradient" id="Gradient_p6728"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8rlf3"]
+noise = SubResource("FastNoiseLite_sk1ne")
+color_ramp = SubResource("Gradient_p6728")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1pt6x"]
+noise = SubResource("FastNoiseLite_sk1ne")
+color_ramp = SubResource("Gradient_p6728")
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0b2k"]
+metallic = 0.94
+metallic_specular = 1.0
+roughness = 0.0
+emission_enabled = true
+emission_energy_multiplier = 7.45
+emission_texture = SubResource("NoiseTexture2D_hmo8y")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_1pt6x")
+heightmap_enabled = true
+heightmap_scale = 9.43
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+heightmap_texture = SubResource("NoiseTexture2D_8rlf3")
+uv1_scale = Vector3(1.28, 1, 1)
+stencil_flags = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_p6728"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8rlf3"]
+transparency = 4
+albedo_color = Color(1, 1, 1, 0.5294118)
+metallic = 1.0
+roughness = 0.0
+disable_receive_shadows = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_krgco"]
+radius = 1.0
+height = 2.0
+radial_segments = 32
+rings = 16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pt6x"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+grow = true
+grow_amount = 0.045
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gugjk"]
+next_pass = SubResource("StandardMaterial3D_1pt6x")
+albedo_color = Color(1, 1, 1, 0)
+roughness = 0.5
+refraction_enabled = true
+detail_blend_mode = 1
+disable_receive_shadows = true
+stencil_mode = 1
+stencil_flags = 2
+stencil_outline_thickness = 0.045
+
+[sub_resource type="SphereMesh" id="SphereMesh_8rlf3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v6y68"]
+metallic_specular = 1.0
+disable_receive_shadows = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ujtl2"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="Gradient" id="Gradient_8s28o"]
+interpolation_mode = 1
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hmo8y"]
+gradient = SubResource("Gradient_8s28o")
+width = 32
+height = 32
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u41r1"]
+albedo_texture = SubResource("GradientTexture2D_hmo8y")
+albedo_texture_force_srgb = true
+metallic = 0.5
+roughness = 0.5
+uv1_triplanar = true
+uv1_triplanar_sharpness = 150.0
+uv1_world_triplanar = true
+texture_filter = 4
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tu725"]
+size = Vector2(100, 100)
+
+[sub_resource type="Gradient" id="Gradient_ysxnh"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.51978415)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yqnjk"]
+noise_type = 0
+frequency = 0.065
+fractal_type = 0
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_3ycqg"]
+noise = SubResource("FastNoiseLite_yqnjk")
+color_ramp = SubResource("Gradient_ysxnh")
+
+[sub_resource type="FogMaterial" id="FogMaterial_h8hj2"]
+density = 8.0
+density_texture = SubResource("NoiseTexture3D_3ycqg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ip765"]
+shader = ExtResource("3_21rt5")
+shader_parameter/rayleigh_strength = 1.0
+shader_parameter/mie_strength = 1.0
+shader_parameter/ozone_strength = 1.0
+shader_parameter/atmosphere_density = 1.0
+shader_parameter/exposure = 10.0
+shader_parameter/sun_disc_feather = 0.1
+shader_parameter/sundisc_intensity = 10.0
+shader_parameter/use_debanding = true
+
+[sub_resource type="Sky" id="Sky_ld2hi"]
+sky_material = SubResource("ShaderMaterial_ip765")
+process_mode = 3
+radiance_size = 0
+
+[sub_resource type="Environment" id="Environment_sqloo"]
+background_mode = 2
+sky = SubResource("Sky_ld2hi")
+reflected_light_source = 2
+ssr_enabled = true
+ssr_max_steps = 512
+ssr_fade_in = 0.016634898
+ssr_fade_out = 0.021949947
+ssr_depth_tolerance = 0.51
+ssao_enabled = true
+ssao_radius = 2.0
+ssao_intensity = 4.5
+ssil_enabled = true
+ssil_sharpness = 0.75
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_cascades = 2
+sdfgi_min_cell_size = 0.4
+sdfgi_y_scale = 2
+glow_enabled = true
+fog_sun_scatter = 0.5
+fog_density = 0.05
+fog_sky_affect = 0.2
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_s3esx"]
+auto_exposure_enabled = true
+auto_exposure_speed = 1.0
+dof_blur_far_distance = 20.0
+dof_blur_far_transition = 50.0
+dof_blur_near_enabled = true
+dof_blur_near_distance = 5.0
+dof_blur_near_transition = 5.0
+
+[sub_resource type="Shader" id="Shader_7hlfe"]
+code = "// TRANSLATED & MODIFIED FROM: https://www.shadertoy.com/view/4sX3Rs
+
+shader_type canvas_item;
+render_mode blend_add;
+
+uniform vec2 sun_position = vec2(0.0);
+uniform vec3 tint = vec3(1.4, 1.2, 1.0);
+uniform sampler2D noise_texture;
+
+float noise_float(float t, vec2 texResolution)
+{
+	return texture(noise_texture, vec2(t, 0.0) / texResolution).x;
+}
+
+float noise_vec2(vec2 t, vec2 texResolution)
+{
+	return texture(noise_texture, t / texResolution).x;
+}
+
+vec3 lens_flare(vec2 uv, vec2 pos, vec2 texResolution)
+{
+	vec2 main = uv - pos;
+	vec2 uvd = uv * length(uv);
+	
+	float ang = atan(main.x, main.y);
+	float dist = length(main);
+	dist = pow(dist, 0.1);
+	
+	float n = noise_vec2(vec2(ang * 16.0, dist * 32.0), texResolution);
+
+	float f1 = max(0.01 - pow(length(uv + 1.2 * pos), 1.9), 0.0) * 7.0;
+
+	float f2 = max(1.0 / (1.0 + 32.0 * pow(length(uvd + 0.8 * pos), 2.0)), 0.0) * 0.25;
+	float f22 = max(1.0 / (1.0 + 32.0 * pow(length(uvd + 0.85 * pos),2.0)), 0.0) * 0.23;
+	float f23 = max(1.0 / (1.0 + 32.0 * pow(length(uvd + 0.9 * pos), 2.0)), 0.0) * 0.21;
+	
+	vec2 uvx = mix(uv, uvd, -0.5);
+	
+	float f4 = max(0.01 - pow(length(uvx + 0.4 * pos), 2.4), 0.0) * 6.0;
+	float f42 = max(0.01 - pow(length(uvx + 0.45 * pos), 2.4), 0.0) * 5.0;
+	float f43 = max(0.01 - pow(length(uvx + 0.5 * pos), 2.4), 0.0) * 3.0;
+	
+	uvx = mix(uv, uvd, -0.4);
+	
+	float f5 = max(0.01 - pow(length(uvx + 0.2 * pos), 5.5), 0.0) * 2.0;
+	float f52 = max(0.01 - pow(length(uvx + 0.4 * pos), 5.5), 0.0) * 2.0;
+	float f53 = max(0.01 - pow(length(uvx + 0.6 * pos), 5.5), 0.0) * 2.0;
+	
+	uvx = mix(uv, uvd, -0.5);
+	
+	float f6 = max(0.01 - pow(length(uvx - 0.3 * pos), 1.6), 0.0) * 6.0;
+	float f62 = max(0.01 - pow(length(uvx - 0.325 * pos), 1.6), 0.0) * 3.0;
+	float f63 = max(0.01 - pow(length(uvx - 0.35 * pos), 1.6), 0.0) * 5.0;
+	
+	vec3 c = vec3(0.0);
+	
+	c.r += f2 + f4 + f5 + f6;
+	c.g += f22 + f42 + f52 + f62;
+	c.b += f23 + f43 + f53 + f63;
+	c = c * 1.3 - vec3(length(uvd) * 0.05);
+	
+	return c;
+}
+
+vec3 cc(vec3 color, float factor,float factor2)
+{
+	float w = color.x + color.y + color.z;
+	return mix(color, vec3(w) * factor, w * factor2);
+}
+
+void fragment()
+{
+	vec2 texResolution = 1.0 / TEXTURE_PIXEL_SIZE;
+	vec2 resolution = 1.0 / SCREEN_PIXEL_SIZE;
+	
+	vec2 uv = FRAGCOORD.xy / resolution.xy - 0.5;
+	uv.x *= resolution.x/resolution.y; //fix aspect ratio
+
+	vec2 sun = (sun_position.xy / resolution.xy) - vec2(0.5, 0.5);
+	sun.x *= resolution.x / resolution.y; //fix aspect ratio
+	
+	vec3 flare_color = tint * lens_flare(uv, sun.xy, texResolution);
+	
+	COLOR = vec4(flare_color, 1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ujnwt"]
+shader = SubResource("Shader_7hlfe")
+shader_parameter/sun_position = Vector2(0, 0)
+shader_parameter/tint = Vector3(2, 2, 2)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mlnhf"]
+
+[node name="3Dscene" type="Node3D" unique_id=2068878727]
+
+[node name="Camera stand" type="Node3D" parent="." unique_id=327010308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+script = SubResource("GDScript_dehen")
+
+[node name="Node3D" type="Node3D" parent="Camera stand" unique_id=2018265226]
+
+[node name="Camera3D" type="Camera3D" parent="Camera stand/Node3D" unique_id=408171181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+fov = 90.0
+near = 0.1
+far = 50000.0
+
+[node name="sphere" type="MeshInstance3D" parent="." unique_id=544803452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3037667, 1, -1.3987513)
+material_override = SubResource("StandardMaterial3D_e0b2k")
+mesh = SubResource("BoxMesh_p6728")
+
+[node name="sphere2" type="MeshInstance3D" parent="." unique_id=1669846453]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4372554, 0.9823048, 1.1166148)
+material_override = SubResource("StandardMaterial3D_8rlf3")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_krgco")
+
+[node name="sphere4" type="MeshInstance3D" parent="sphere2" unique_id=945235069]
+transform = Transform3D(0.96, 0, 0, 0, 0.96, 0, 0, 0, 0.96, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_8rlf3")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_krgco")
+
+[node name="sphere3" type="MeshInstance3D" parent="." unique_id=2133432491]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.1969689, 1.09741, -1.2853878)
+material_override = SubResource("StandardMaterial3D_gugjk")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_8rlf3")
+
+[node name="cube" type="MeshInstance3D" parent="." unique_id=732421242]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 1, 1, 1)
+material_override = SubResource("StandardMaterial3D_v6y68")
+mesh = SubResource("BoxMesh_ujtl2")
+
+[node name="Land" type="MeshInstance3D" parent="." unique_id=187525384]
+material_override = SubResource("StandardMaterial3D_u41r1")
+mesh = SubResource("PlaneMesh_tu725")
+
+[node name="FogVolume" type="FogVolume" parent="." unique_id=442783610]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10844517, 2.6864018, -0.024719477)
+shape = 0
+material = SubResource("FogMaterial_h8hj2")
+
+[node name="env" type="WorldEnvironment" parent="." unique_id=250442420]
+environment = SubResource("Environment_sqloo")
+camera_attributes = SubResource("CameraAttributesPractical_s3esx")
+
+[node name="sun" type="DirectionalLight3D" parent="." unique_id=296681708]
+transform = Transform3D(1, 0, 0, 0, -0.44171423, 0.8802412, 0, -0.8802412, -0.44171423, 0, 0, 0)
+light_color = Color(1, 0.9814788, 0.95573074, 1)
+light_angular_distance = 1.0
+shadow_enabled = true
+shadow_bias = 0.02
+script = ExtResource("4_efd4f")
+start = true
+
+[node name="sunflare" type="TextureRect" parent="sun" unique_id=620507965]
+material = SubResource("ShaderMaterial_ujnwt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("CanvasTexture_mlnhf")
+script = ExtResource("3_m168c")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true

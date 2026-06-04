@@ -1,0 +1,890 @@
+[gd_scene format=3 uid="uid://bfv1wy4ej5fyb"]
+
+[ext_resource type="Script" uid="uid://c7m3f8teoajl1" path="res://addons/Extras/Demo UI/main.gd" id="1_cob47"]
+[ext_resource type="PackedScene" uid="uid://dnp0noijcdmd8" path="res://addons/Extras/Demo UI/3Dset.tscn" id="2_yruv8"]
+[ext_resource type="Script" uid="uid://bri5e8cs36k1q" path="res://addons/Extras/QuitGame.gd" id="3_ekdsu"]
+[ext_resource type="Script" uid="uid://luc4a60ftw0g" path="res://addons/Extras/ButtonWithSound.gd" id="4_f7pgh"]
+[ext_resource type="Script" uid="uid://db8ofwcyjciqg" path="res://addons/Extras/CheckBoxAutoSaver.gd" id="5_r5hfj"]
+[ext_resource type="Script" uid="uid://kxv52ld02kka" path="res://addons/Extras/OptionButtonAutoSaver.gd" id="6_awqng"]
+[ext_resource type="Script" uid="uid://d00bnkqwklrdq" path="res://addons/Extras/HSliderAutoSaver.gd" id="7_bpm4l"]
+[ext_resource type="Script" uid="uid://c2esw6ln4m1pa" path="res://addons/Extras/InputKeyEditor.gd" id="8_4jtob"]
+[ext_resource type="Script" uid="uid://dy7f8di7r8hr3" path="res://addons/Extras/ButtonChangeScene.gd" id="9_sblrr"]
+[ext_resource type="AudioStream" uid="uid://bsta0ego2gd2l" path="res://addons/Extras/BtnSound.wav" id="10_voeqe"]
+[ext_resource type="AudioStream" uid="uid://biatb03mo27kl" path="res://addons/Extras/Demo UI/BeepBox-Song.mp3" id="11_onq3l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlnhf"]
+bg_color = Color(0, 0, 0, 0.49803922)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_s3esx"]
+color = Color(0, 0, 0, 0.50980395)
+thickness = 31
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_sqloo"]
+color = Color(0, 0, 0, 0.50980395)
+thickness = 30
+
+[node name="3DGameUiDemo" type="Node" unique_id=1542817564]
+script = ExtResource("1_cob47")
+
+[node name="3Dset" parent="." unique_id=2068878727 instance=ExtResource("2_yruv8")]
+
+[node name="QuitGame" type="Button" parent="." unique_id=1664181528]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_bottom = 56.0
+grow_horizontal = 0
+text = "Quit
+Game"
+script = ExtResource("3_ekdsu")
+metadata/_custom_type_script = "uid://bri5e8cs36k1q"
+
+[node name="settings" type="Button" parent="." unique_id=1779979652]
+offset_top = -1.0
+offset_right = 48.0
+offset_bottom = 47.0
+toggle_mode = true
+text = "||"
+script = ExtResource("4_f7pgh")
+metadata/_custom_type_script = "uid://luc4a60ftw0g"
+
+[node name="Control" type="Control" parent="settings" unique_id=1884302559]
+layout_mode = 1
+anchors_preset = 0
+pivot_offset = Vector2(48, 24)
+mouse_filter = 2
+
+[node name="Graphics" type="Button" parent="settings/Control" unique_id=1818851313]
+layout_mode = 0
+offset_left = 456.0
+offset_right = 568.0
+offset_bottom = 48.0
+toggle_mode = true
+text = "Graphics"
+script = ExtResource("4_f7pgh")
+metadata/_custom_type_script = "uid://luc4a60ftw0g"
+
+[node name="Audio" type="Button" parent="settings/Control" unique_id=1564813051]
+layout_mode = 0
+offset_left = 584.0
+offset_right = 696.0
+offset_bottom = 48.0
+toggle_mode = true
+text = "Audio"
+script = ExtResource("4_f7pgh")
+metadata/_custom_type_script = "uid://luc4a60ftw0g"
+
+[node name="Controls" type="Button" parent="settings/Control" unique_id=1532095608]
+layout_mode = 0
+offset_left = 712.0
+offset_right = 824.0
+offset_bottom = 48.0
+toggle_mode = true
+text = "Controls"
+script = ExtResource("4_f7pgh")
+metadata/_custom_type_script = "uid://luc4a60ftw0g"
+
+[node name="Levels" type="Button" parent="settings/Control" unique_id=1251637707]
+layout_mode = 0
+offset_left = 840.0
+offset_right = 952.0
+offset_bottom = 48.0
+toggle_mode = true
+text = "levels"
+script = ExtResource("4_f7pgh")
+metadata/_custom_type_script = "uid://luc4a60ftw0g"
+
+[node name="GraphicsPanel" type="Panel" parent="settings/Control" unique_id=453191771]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.8571428
+anchor_top = 2.0
+anchor_right = 6.285714
+anchor_bottom = 15.666667
+offset_left = 400.0
+offset_top = 128.0
+offset_right = 1040.0
+offset_bottom = 704.0
+pivot_offset = Vector2(112, -80)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mlnhf")
+
+[node name="shadows" type="CheckBox" parent="settings/Control/GraphicsPanel" unique_id=724385849]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 112.0
+offset_bottom = 112.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+tooltip_text = "PERFORMANCE : AVERAGE"
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 16
+text = "SHADOWS"
+script = ExtResource("5_r5hfj")
+metadata/_custom_type_script = "uid://db8ofwcyjciqg"
+
+[node name="glow" type="CheckBox" parent="settings/Control/GraphicsPanel" unique_id=1927581471]
+layout_mode = 0
+offset_top = 112.0
+offset_right = 80.0
+offset_bottom = 144.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+tooltip_text = "PERFORMANCE : FAST"
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 16
+text = "GLOW"
+script = ExtResource("5_r5hfj")
+metadata/_custom_type_script = "uid://db8ofwcyjciqg"
+
+[node name="fog" type="CheckBox" parent="settings/Control/GraphicsPanel" unique_id=1127646082]
+layout_mode = 0
+offset_top = 144.0
+offset_right = 64.0
+offset_bottom = 176.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+tooltip_text = "PERFORMANCE : SLOW"
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 16
+text = "FOG"
+script = ExtResource("5_r5hfj")
+metadata/_custom_type_script = "uid://db8ofwcyjciqg"
+
+[node name="ssr" type="CheckBox" parent="settings/Control/GraphicsPanel" unique_id=1498853898]
+layout_mode = 0
+offset_top = 208.0
+offset_right = 56.0
+offset_bottom = 240.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+tooltip_text = "SCREEN SPACE REFLECTIONS
+PERFORMANCE : SLOW"
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 16
+text = "SSR"
+script = ExtResource("5_r5hfj")
+metadata/_custom_type_script = "uid://db8ofwcyjciqg"
+
+[node name="ssil" type="CheckBox" parent="settings/Control/GraphicsPanel" unique_id=1335559619]
+layout_mode = 0
+offset_top = 240.0
+offset_right = 64.0
+offset_bottom = 272.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+tooltip_text = "SCREEN SPACE INDIRECT LIGHTING
+PERFORMANCE : AVERAGE"
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 16
+text = "SSIL"
+script = ExtResource("5_r5hfj")
+metadata/_custom_type_script = "uid://db8ofwcyjciqg"
+
+[node name="ssao" type="CheckBox" parent="settings/Control/GraphicsPanel" unique_id=1085776268]
+layout_mode = 0
+offset_top = 272.0
+offset_right = 72.0
+offset_bottom = 304.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+tooltip_text = "SCREEN SPACE AMBIENT OCCLUSION
+PERFORMANCE : FAST"
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 16
+text = "SSAO"
+script = ExtResource("5_r5hfj")
+metadata/_custom_type_script = "uid://db8ofwcyjciqg"
+
+[node name="sdfgi" type="CheckBox" parent="settings/Control/GraphicsPanel" unique_id=1421681955]
+layout_mode = 0
+offset_top = 304.0
+offset_right = 80.0
+offset_bottom = 336.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+tooltip_text = "SIGNED DISTANCE FIELD GLOBAL ILLUMINATION
+PERFORMANCE : SLOW"
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 16
+text = "SDFGI"
+script = ExtResource("5_r5hfj")
+metadata/_custom_type_script = "uid://db8ofwcyjciqg"
+
+[node name="dof" type="CheckBox" parent="settings/Control/GraphicsPanel" unique_id=1513907801]
+layout_mode = 0
+offset_top = 368.0
+offset_right = 64.0
+offset_bottom = 400.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+tooltip_text = "Depth Of Field
+PERFORMANCE : FAST"
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 16
+text = "DOF"
+script = ExtResource("5_r5hfj")
+metadata/_custom_type_script = "uid://db8ofwcyjciqg"
+
+[node name="motionblur" type="CheckBox" parent="settings/Control/GraphicsPanel" unique_id=424101629]
+layout_mode = 0
+offset_top = 400.0
+offset_right = 192.0
+offset_bottom = 432.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+tooltip_text = "PERFORMANCE : UNKNOWN"
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 16
+text = "MOTION BLUR \"Null\""
+script = ExtResource("5_r5hfj")
+metadata/_custom_type_script = "uid://db8ofwcyjciqg"
+
+[node name="lensflare" type="CheckBox" parent="settings/Control/GraphicsPanel" unique_id=1063939846]
+layout_mode = 0
+offset_top = 432.0
+offset_right = 120.0
+offset_bottom = 464.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+tooltip_text = "PERFORMANCE : FAST"
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 16
+text = "LENS FLARE"
+script = ExtResource("5_r5hfj")
+metadata/_custom_type_script = "uid://db8ofwcyjciqg"
+
+[node name="autoexposure" type="CheckBox" parent="settings/Control/GraphicsPanel" unique_id=1013113713]
+layout_mode = 0
+offset_top = 464.0
+offset_right = 160.0
+offset_bottom = 496.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+tooltip_text = "PERFORMANCE : AVERAGE"
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 16
+text = "AUTO EXPOSURE"
+script = ExtResource("5_r5hfj")
+metadata/_custom_type_script = "uid://db8ofwcyjciqg"
+
+[node name="msaa" type="OptionButton" parent="settings/Control/GraphicsPanel" unique_id=1752960608]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 176.0
+offset_right = 632.0
+offset_bottom = 207.0
+size_flags_horizontal = 3
+tooltip_text = "MSAA = MULTI SAMPLE ANTI ALIASING 
+2X || PERFORMANCE : FAST
+4X || PERFORMANCE : AVERAGE
+8X || PERFORMANCE : SLOW"
+focus_mode = 0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 16
+alignment = 1
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "MSAA : OFF"
+popup/item_0/id = 0
+popup/item_1/text = "MSAA : 2X"
+popup/item_1/id = 1
+popup/item_2/text = "MSAA : 4X"
+popup/item_2/id = 2
+popup/item_3/text = "MSAA : 8X"
+popup/item_3/id = 3
+script = ExtResource("6_awqng")
+metadata/_custom_type_script = "uid://kxv52ld02kka"
+
+[node name="ssaa" type="OptionButton" parent="settings/Control/GraphicsPanel" unique_id=1593160026]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 216.0
+offset_right = 632.0
+offset_bottom = 247.0
+size_flags_horizontal = 3
+tooltip_text = "SSAA = SCREEN SPACE ANTIALIASING
+FXAA = FAST APPROXIMATE ANTIALIASING || PERFORMANCE : FAST
+SMAA = SUBPIXEL MORPHOLOGICAL ANTIALIASING|| PERFORMANCE : FAST"
+focus_mode = 0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 16
+alignment = 1
+selected = 0
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "SSAA : OFF"
+popup/item_0/id = 0
+popup/item_1/text = "SSAA : FXAA"
+popup/item_1/id = 1
+popup/item_2/text = "SSAA : SMAA"
+popup/item_2/id = 2
+script = ExtResource("6_awqng")
+metadata/_custom_type_script = "uid://kxv52ld02kka"
+
+[node name="taa" type="CheckBox" parent="settings/Control/GraphicsPanel" unique_id=845700154]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 144.0
+offset_right = 384.0
+offset_bottom = 176.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+tooltip_text = "TEMPORAL ANTI ALIASING || PERFORMANCE : SLOW"
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_constants/h_separation = 4
+theme_override_font_sizes/font_size = 16
+text = "TAA"
+script = ExtResource("5_r5hfj")
+metadata/_custom_type_script = "uid://db8ofwcyjciqg"
+
+[node name="fullscreen" type="CheckBox" parent="settings/Control/GraphicsPanel" unique_id=215096466]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 80.0
+offset_right = 433.0
+offset_bottom = 112.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 16
+text = "Full Screen"
+script = ExtResource("5_r5hfj")
+metadata/_custom_type_script = "uid://db8ofwcyjciqg"
+
+[node name="fov" type="HSlider" parent="settings/Control/GraphicsPanel" unique_id=36069381]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 320.0
+offset_right = 632.0
+offset_bottom = 352.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+tooltip_text = "FOV = FIELD OF VIEW"
+focus_mode = 0
+theme_override_styles/slider = SubResource("StyleBoxLine_s3esx")
+min_value = 20.0
+max_value = 140.0
+value = 90.0
+exp_edit = true
+script = ExtResource("7_bpm4l")
+metadata/_custom_type_script = "uid://d00bnkqwklrdq"
+
+[node name="fov lable" type="Label" parent="settings/Control/GraphicsPanel" unique_id=1813632236]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 320.0
+offset_right = 400.0
+offset_bottom = 352.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 16
+text = "FOV : 090"
+vertical_alignment = 1
+
+[node name="resolution" type="HSlider" parent="settings/Control/GraphicsPanel" unique_id=1546227893]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 360.0
+offset_right = 632.0
+offset_bottom = 392.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 0
+theme_override_styles/slider = SubResource("StyleBoxLine_s3esx")
+min_value = 0.1
+max_value = 1.0
+step = 0.1
+value = 1.0
+script = ExtResource("7_bpm4l")
+metadata/_custom_type_script = "uid://d00bnkqwklrdq"
+
+[node name="res lable" type="Label" parent="settings/Control/GraphicsPanel" unique_id=456303113]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 360.0
+offset_right = 520.0
+offset_bottom = 392.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 16
+text = "RESOLUTION: 1920X1080"
+vertical_alignment = 1
+
+[node name="fps" type="HSlider" parent="settings/Control/GraphicsPanel" unique_id=22071667]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 400.0
+offset_right = 632.0
+offset_bottom = 432.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+tooltip_text = "FPS = FRAMES PER SECOND"
+focus_mode = 0
+theme_override_styles/slider = SubResource("StyleBoxLine_s3esx")
+min_value = 1.0
+max_value = 1000.0
+value = 60.0
+exp_edit = true
+script = ExtResource("7_bpm4l")
+metadata/_custom_type_script = "uid://d00bnkqwklrdq"
+
+[node name="fps lable" type="Label" parent="settings/Control/GraphicsPanel" unique_id=602134364]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 400.0
+offset_right = 397.0
+offset_bottom = 432.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 16
+text = "FPS:0060"
+vertical_alignment = 1
+
+[node name="upscale" type="OptionButton" parent="settings/Control/GraphicsPanel" unique_id=1063658870]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 256.0
+offset_right = 632.0
+offset_bottom = 288.0
+size_flags_horizontal = 3
+tooltip_text = "FSR = FIDELITY FX SUPER RESOLUTION || PERFORMANCE : FAST
+FX means Visual Effects"
+focus_mode = 0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 16
+alignment = 1
+selected = 0
+allow_reselect = true
+item_count = 5
+popup/item_0/text = "UPSCALING : OFF"
+popup/item_0/id = 0
+popup/item_1/text = "UPSCALING : FSR"
+popup/item_1/id = 1
+popup/item_2/text = "UPSCALING : FSR2"
+popup/item_2/id = 2
+popup/item_3/text = "UPSCALING : METALFX SPATIAL"
+popup/item_3/id = 3
+popup/item_4/text = "UPSCALING : METALFX TEMPORAL"
+popup/item_4/id = 4
+script = ExtResource("6_awqng")
+metadata/_custom_type_script = "uid://kxv52ld02kka"
+
+[node name="AudioPanel_" type="Panel" parent="settings/Control" unique_id=56367986]
+visible = false
+layout_mode = 0
+offset_left = 400.0
+offset_top = 128.0
+offset_right = 1040.0
+offset_bottom = 704.0
+pivot_offset = Vector2(240, -80)
+theme_override_styles/panel = SubResource("StyleBoxFlat_mlnhf")
+
+[node name="AudioPanel" type="VBoxContainer" parent="settings/Control" unique_id=1150426689]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.8571428
+anchor_top = 2.5
+anchor_right = 3.857143
+anchor_bottom = 14.5
+offset_left = 416.0
+offset_top = 80.0
+offset_right = 1024.0
+offset_bottom = 656.0
+pivot_offset = Vector2(224, -32)
+mouse_filter = 2
+
+[node name="title" type="Label" parent="settings/Control/AudioPanel" unique_id=1039767374]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 16
+text = "MASTER SOUND"
+vertical_alignment = 2
+
+[node name="master sound" type="HSlider" parent="settings/Control/AudioPanel" unique_id=1292190666]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 0
+theme_override_styles/slider = SubResource("StyleBoxLine_sqloo")
+min_value = -80.0
+max_value = 6.0
+script = ExtResource("7_bpm4l")
+metadata/_custom_type_script = "uid://d00bnkqwklrdq"
+
+[node name="title2" type="Label" parent="settings/Control/AudioPanel" unique_id=276734960]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 16
+text = "PLAYER"
+vertical_alignment = 2
+
+[node name="player" type="HSlider" parent="settings/Control/AudioPanel" unique_id=2057631926]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 0
+theme_override_styles/slider = SubResource("StyleBoxLine_sqloo")
+min_value = -80.0
+max_value = 6.0
+value = -10.0
+script = ExtResource("7_bpm4l")
+metadata/_custom_type_script = "uid://d00bnkqwklrdq"
+
+[node name="title3" type="Label" parent="settings/Control/AudioPanel" unique_id=491817109]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 16
+text = "UI"
+vertical_alignment = 2
+
+[node name="UI" type="HSlider" parent="settings/Control/AudioPanel" unique_id=370043105]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 0
+theme_override_styles/slider = SubResource("StyleBoxLine_sqloo")
+min_value = -80.0
+max_value = 6.0
+value = -10.0
+script = ExtResource("7_bpm4l")
+metadata/_custom_type_script = "uid://d00bnkqwklrdq"
+
+[node name="title4" type="Label" parent="settings/Control/AudioPanel" unique_id=387489130]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 16
+text = "MUSIC"
+vertical_alignment = 2
+
+[node name="music" type="HSlider" parent="settings/Control/AudioPanel" unique_id=1135971380]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 0
+theme_override_styles/slider = SubResource("StyleBoxLine_sqloo")
+min_value = -80.0
+max_value = 6.0
+value = -10.0
+script = ExtResource("7_bpm4l")
+metadata/_custom_type_script = "uid://d00bnkqwklrdq"
+
+[node name="ControlsPanel" type="VBoxContainer" parent="settings/Control" unique_id=833770248]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.4289997
+anchor_top = 3.8333333
+anchor_right = 2.143
+anchor_bottom = 14.5
+offset_left = 400.0
+offset_top = 128.0
+offset_right = 1040.0
+offset_bottom = 704.0
+pivot_offset = Vector2(368, -80)
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="up" type="Button" parent="settings/Control/ControlsPanel" unique_id=877795405]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "up"
+focus_mode = 0
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Up"
+script = ExtResource("8_4jtob")
+input_action = "ui_up"
+key_name = "Up"
+metadata/_custom_type_script = "uid://c2esw6ln4m1pa"
+
+[node name="down" type="Button" parent="settings/Control/ControlsPanel" unique_id=1442984532]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "down"
+focus_mode = 0
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Down"
+script = ExtResource("8_4jtob")
+input_action = "ui_down"
+key_name = "Down"
+metadata/_custom_type_script = "uid://c2esw6ln4m1pa"
+
+[node name="left" type="Button" parent="settings/Control/ControlsPanel" unique_id=65427366]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "left"
+focus_mode = 0
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Left"
+script = ExtResource("8_4jtob")
+input_action = "ui_left"
+key_name = "Left"
+metadata/_custom_type_script = "uid://c2esw6ln4m1pa"
+
+[node name="right" type="Button" parent="settings/Control/ControlsPanel" unique_id=2123277405]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "right"
+focus_mode = 0
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Right"
+script = ExtResource("8_4jtob")
+input_action = "ui_right"
+key_name = "Right"
+metadata/_custom_type_script = "uid://c2esw6ln4m1pa"
+
+[node name="break" type="Button" parent="settings/Control/ControlsPanel" unique_id=1291140490]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "break"
+focus_mode = 0
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Space"
+script = ExtResource("8_4jtob")
+input_action = "ui_accept"
+key_name = "Space"
+metadata/_custom_type_script = "uid://c2esw6ln4m1pa"
+
+[node name="re orientate" type="Button" parent="settings/Control/ControlsPanel" unique_id=1133310893]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "re_orientate"
+focus_mode = 0
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Backspace"
+script = ExtResource("8_4jtob")
+input_action = "ui_text_backspace"
+key_name = "Backspace"
+metadata/_custom_type_script = "uid://c2esw6ln4m1pa"
+
+[node name="undo" type="Button" parent="settings/Control/ControlsPanel" unique_id=932277329]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "undo"
+focus_mode = 0
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Delete"
+script = ExtResource("8_4jtob")
+input_action = "ui_text_delete"
+key_name = "Delete"
+metadata/_custom_type_script = "uid://c2esw6ln4m1pa"
+
+[node name="exit" type="Button" parent="settings/Control/ControlsPanel" unique_id=196870524]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "exit"
+focus_mode = 0
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Escape"
+script = ExtResource("8_4jtob")
+input_action = "ui_cancel"
+key_name = "Escape"
+metadata/_custom_type_script = "uid://c2esw6ln4m1pa"
+
+[node name="LevelsPanel" type="GridContainer" parent="settings/Control" unique_id=1841942734]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -3.571
+anchor_top = 3.833
+anchor_right = 1.0
+anchor_bottom = 14.5
+offset_left = 400.0
+offset_top = 128.0
+offset_right = 1040.0
+offset_bottom = 704.0
+pivot_offset = Vector2(496, -80)
+mouse_filter = 2
+theme_override_constants/h_separation = 22
+theme_override_constants/v_separation = 22
+columns = 4
+
+[node name="level" type="Button" parent="settings/Control/LevelsPanel" unique_id=506882622]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+script = ExtResource("9_sblrr")
+metadata/_custom_type_script = "uid://dy7f8di7r8hr3"
+
+[node name="level2" type="Button" parent="settings/Control/LevelsPanel" unique_id=1139777268]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+script = ExtResource("9_sblrr")
+metadata/_custom_type_script = "uid://dy7f8di7r8hr3"
+
+[node name="level3" type="Button" parent="settings/Control/LevelsPanel" unique_id=1221978548]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+script = ExtResource("9_sblrr")
+metadata/_custom_type_script = "uid://dy7f8di7r8hr3"
+
+[node name="level4" type="Button" parent="settings/Control/LevelsPanel" unique_id=2067045805]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+script = ExtResource("9_sblrr")
+metadata/_custom_type_script = "uid://dy7f8di7r8hr3"
+
+[node name="level5" type="Button" parent="settings/Control/LevelsPanel" unique_id=139610871]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+script = ExtResource("9_sblrr")
+metadata/_custom_type_script = "uid://dy7f8di7r8hr3"
+
+[node name="level6" type="Button" parent="settings/Control/LevelsPanel" unique_id=1232143022]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+script = ExtResource("9_sblrr")
+metadata/_custom_type_script = "uid://dy7f8di7r8hr3"
+
+[node name="level7" type="Button" parent="settings/Control/LevelsPanel" unique_id=392699340]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+script = ExtResource("9_sblrr")
+metadata/_custom_type_script = "uid://dy7f8di7r8hr3"
+
+[node name="level8" type="Button" parent="settings/Control/LevelsPanel" unique_id=1185748254]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+script = ExtResource("9_sblrr")
+metadata/_custom_type_script = "uid://dy7f8di7r8hr3"
+
+[node name="level9" type="Button" parent="settings/Control/LevelsPanel" unique_id=2145475749]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+script = ExtResource("9_sblrr")
+metadata/_custom_type_script = "uid://dy7f8di7r8hr3"
+
+[node name="level10" type="Button" parent="settings/Control/LevelsPanel" unique_id=371423434]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+script = ExtResource("9_sblrr")
+metadata/_custom_type_script = "uid://dy7f8di7r8hr3"
+
+[node name="level11" type="Button" parent="settings/Control/LevelsPanel" unique_id=971379364]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+script = ExtResource("9_sblrr")
+metadata/_custom_type_script = "uid://dy7f8di7r8hr3"
+
+[node name="level12" type="Button" parent="settings/Control/LevelsPanel" unique_id=185148242]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+script = ExtResource("9_sblrr")
+metadata/_custom_type_script = "uid://dy7f8di7r8hr3"
+
+[node name="level13" type="Button" parent="settings/Control/LevelsPanel" unique_id=1649921407]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+script = ExtResource("9_sblrr")
+metadata/_custom_type_script = "uid://dy7f8di7r8hr3"
+
+[node name="level14" type="Button" parent="settings/Control/LevelsPanel" unique_id=82239927]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+script = ExtResource("9_sblrr")
+metadata/_custom_type_script = "uid://dy7f8di7r8hr3"
+
+[node name="level15" type="Button" parent="settings/Control/LevelsPanel" unique_id=553425338]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+script = ExtResource("9_sblrr")
+metadata/_custom_type_script = "uid://dy7f8di7r8hr3"
+
+[node name="level16" type="Button" parent="settings/Control/LevelsPanel" unique_id=1449362455]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+script = ExtResource("9_sblrr")
+metadata/_custom_type_script = "uid://dy7f8di7r8hr3"
+
+[node name="BtnSound" type="AudioStreamPlayer" parent="." unique_id=821177578]
+stream = ExtResource("10_voeqe")
+pitch_scale = 2.0
+bus = &"ui"
+
+[node name="5BeepboxMusicsOpenGameArt" type="AudioStreamPlayer" parent="." unique_id=481289964]
+stream = ExtResource("11_onq3l")
+autoplay = true
+bus = &"music"
