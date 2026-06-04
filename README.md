@@ -1,8 +1,10 @@
-<img width="16" height="16" alt="btn" src="https://github.com/user-attachments/assets/49f2cef6-b6d6-43cc-a58e-d4f138dae4c8" />**Extras**  
-
+<img width="16" height="16" alt="btn" src="https://github.com/user-attachments/assets/49f2cef6-b6d6-43cc-a58e-d4f138dae4c8" />Extras  
+------------------------------------------
 This addon provides extra custom **functions** , **buttons** and **other-nodes** that auto-save and auto-load data in the game. And provide in game ui sound.  
 
+
 Setup:  
+------------------------------------------
 1. Make sure "Extras" folder is visible under "addons" folder.  
 2. Add a global variable "EF"  
    <img width="850" height="269" alt="_Do This" src="https://github.com/user-attachments/assets/2a69b76c-50d7-4cff-bb91-8ea1beb6af15" />  
@@ -25,7 +27,7 @@ Currently these nodes are available:
 <img width="16" height="16" alt="QuitGame" src="https://github.com/user-attachments/assets/79f48d11-7e7f-41e4-a590-084286a1b67e" />QuitGame  
 <img width="16" height="16" alt="TextEditAutoSaver" src="https://github.com/user-attachments/assets/2b14b80b-c1fd-409c-bd30-eba3ec023d8c" />TextEditAutoSaver  
 
-<img width="16" height="16" alt="TextEditAutoSaver" src="https://github.com/user-attachments/assets/2b14b80b-c1fd-409c-bd30-eba3ec023d8c" />TextEditAutoSaver and <img width="16" height="16" alt="LineEditAutoSaver" src="https://github.com/user-attachments/assets/740498a3-c705-40ec-911c-732863261f41" />LineEditAutoSaver can also execute text as code. when in game, type 1+1 then Shift+Enter to execute code.  
+<img width="16" height="16" alt="TextEditAutoSaver" src="https://github.com/user-attachments/assets/2b14b80b-c1fd-409c-bd30-eba3ec023d8c" />TextEditAutoSaver and <img width="16" height="16" alt="LineEditAutoSaver" src="https://github.com/user-attachments/assets/740498a3-c705-40ec-911c-732863261f41" />LineEditAutoSaver can also execute text as code. In game type 1+1 on them and Shift+Enter to see the result.  
 
 
 And these functions are available :  
@@ -35,5 +37,5 @@ EF.Load_Data(data:Variant,file_name:String)
 EF.Execute_String(txt:String)  
 EF.add_key_to_Input_Action(Input_Action:String,Key_Name:String)  
 EF.remove_a_key_from_Input_Action(Input_Action:String,Key_Name:String)  
-EF.remove_all_keys_from_Input_Action(Input_Action:String) 
+EF.remove_all_keys_from_Input_Action(Input_Action:String)  
 EF.Device_Type()  
