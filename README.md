@@ -21,10 +21,10 @@ Currently these nodes are available:
 <img width="16" height="16" alt="CheckButtonAutoSaver" src="https://github.com/user-attachments/assets/f1f80ca3-47d0-4530-96b7-4ab81e931926" />CheckButtonAutoSaver  
 <img width="16" height="16" alt="HSliderAutoSaver" src="https://github.com/user-attachments/assets/565ec3ce-472b-4029-955a-c6f3030ea1d4" />HSliderAutoSaver  
 <img width="16" height="16" alt="VSliderAutoSaver" src="https://github.com/user-attachments/assets/8e3e7a7b-b86e-4f7c-805f-c55822fe10a9" />VSliderAutoSaver  
-<img width="16" height="16" alt="InputKeyEditor" src="https://github.com/user-attachments/assets/f63577cd-b01f-45b5-ae97-44e8b7484277" />InputKeyEditor  
-<img width="16" height="16" alt="LineEditAutoSaver" src="https://github.com/user-attachments/assets/740498a3-c705-40ec-911c-732863261f41" />LineEditAutoSaver  
 <img width="16" height="16" alt="OptionButtonAutoSaver" src="https://github.com/user-attachments/assets/082bf708-3ae9-4f7a-b8c5-47331ce92a03" />OptionButtonAutoSaver  
 <img width="16" height="16" alt="QuitGame" src="https://github.com/user-attachments/assets/79f48d11-7e7f-41e4-a590-084286a1b67e" />QuitGame  
+<img width="16" height="16" alt="InputKeyEditor" src="https://github.com/user-attachments/assets/f63577cd-b01f-45b5-ae97-44e8b7484277" />InputKeyEditor  
+<img width="16" height="16" alt="LineEditAutoSaver" src="https://github.com/user-attachments/assets/740498a3-c705-40ec-911c-732863261f41" />LineEditAutoSaver  
 <img width="16" height="16" alt="TextEditAutoSaver" src="https://github.com/user-attachments/assets/2b14b80b-c1fd-409c-bd30-eba3ec023d8c" />TextEditAutoSaver  
 
 <img width="16" height="16" alt="TextEditAutoSaver" src="https://github.com/user-attachments/assets/2b14b80b-c1fd-409c-bd30-eba3ec023d8c" />TextEditAutoSaver and <img width="16" height="16" alt="LineEditAutoSaver" src="https://github.com/user-attachments/assets/740498a3-c705-40ec-911c-732863261f41" />LineEditAutoSaver can also execute text as code. In game type 1+1 on them and Shift+Enter to see the result.  
