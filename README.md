@@ -9,8 +9,9 @@ Setup:
 3. Run "main.tscn" from "res://addons/Extras/Demo UI/"
 4. Make in game changes , quit , run it again , check if previous settings are loaded.
 
-Currently these nodes are available:  
 
+Currently these nodes are available:  
+------------------------------------------
 <img width="16" height="16" alt="NodeSaveLoadData" src="https://github.com/user-attachments/assets/34d6c8ca-17b4-4225-bd3d-91cb82d948db" />NodeSaveLoadData "Only saves & loads given data"  
 <img width="16" height="16" alt="btn" src="https://github.com/user-attachments/assets/52309e83-9381-488b-82ec-ae4dcfbc483d" />ButtonWithSound  
 <img width="16" height="16" alt="ButtonChangeScene" src="https://github.com/user-attachments/assets/2ba4a28b-ebcd-4fe8-a9ea-0fd867d66f94" />ButtonChangeScene  
@@ -23,12 +24,12 @@ Currently these nodes are available:
 <img width="16" height="16" alt="OptionButtonAutoSaver" src="https://github.com/user-attachments/assets/082bf708-3ae9-4f7a-b8c5-47331ce92a03" />OptionButtonAutoSaver  
 <img width="16" height="16" alt="QuitGame" src="https://github.com/user-attachments/assets/79f48d11-7e7f-41e4-a590-084286a1b67e" />QuitGame  
 <img width="16" height="16" alt="TextEditAutoSaver" src="https://github.com/user-attachments/assets/2b14b80b-c1fd-409c-bd30-eba3ec023d8c" />TextEditAutoSaver  
-(TextEditAutoSaver also executes text as code.  
-Try print(hi) then Shift+Enter to execute code)  
+
+<img width="16" height="16" alt="TextEditAutoSaver" src="https://github.com/user-attachments/assets/2b14b80b-c1fd-409c-bd30-eba3ec023d8c" />TextEditAutoSaver and <img width="16" height="16" alt="LineEditAutoSaver" src="https://github.com/user-attachments/assets/740498a3-c705-40ec-911c-732863261f41" />LineEditAutoSaver can also execute text as code. when in game, type 1+1 then Shift+Enter to execute code.  
 
 
 And these functions are available :  
-
+------------------------------------------
 EF.Save_Data(data:Variant,file_name:String)  
 EF.Load_Data(data:Variant,file_name:String)  
 EF.Execute_String(txt:String)  
