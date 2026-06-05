@@ -41,3 +41,12 @@ EF.add_key_to_Input_Action(Input_Action:String,Key_Name:String)
 EF.remove_a_key_from_Input_Action(Input_Action:String,Key_Name:String)  
 EF.remove_all_keys_from_Input_Action(Input_Action:String)  
 EF.Device_Type()  
+
+
+Demo Screenshots :  
+------------------------------------------
+<img width="1920" height="1080" alt="Screenshot from 2026-06-05 18-51-48" src="https://github.com/user-attachments/assets/aa3edd68-d628-4675-9d0e-f32ce13b840f" />
+<img width="1920" height="1080" alt="Screenshot from 2026-06-05 18-52-33" src="https://github.com/user-attachments/assets/fe4ab452-bd0d-4db1-8744-f42bf206c534" />
+<img width="1920" height="1080" alt="Screenshot from 2026-06-05 18-52-48" src="https://github.com/user-attachments/assets/c0d8471b-dea1-4170-ba71-cc35b1dfcbe0" />
+<img width="1920" height="1080" alt="Screenshot from 2026-06-05 18-53-00" src="https://github.com/user-attachments/assets/233c8381-a340-4e25-b7da-46afd3beb0cd" />
+
